@@ -2,26 +2,34 @@ package com.jmorenodev.training_api.model;
 
 import com.jmorenodev.training_api.model.enums.Role;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestFactory;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserTest {
 
     @Test
-    void shouldCreateUserAndVerifyGettersAndSetters(){
+    void shouldGetUserFieldsUsingGetters(){
          User trainer= new User();
-         User newTrainer = new User();
          User user= new User(1L, "testName", "testSurname", "email@email.com", "12345678", Role.ROLE_CLIENT, trainer);
 
-         // Getters test
-         assertEquals(1L, user.getId());
+        assertNotNull(user);
+
+        assertEquals(1L, user.getId());
          assertEquals("testName", user.getName());
          assertEquals("testSurname", user.getSurname());
          assertEquals("email@email.com", user.getEmail());
          assertEquals("12345678", user.getPassword());
          assertEquals(Role.ROLE_CLIENT, user.getRole());
          assertEquals(trainer, user.getTrainer());
+    }
 
-         //Setters test
+    @Test
+    void shouldUpdateUserFieldsUsingSetters(){
+        User trainer= new User();
+        User newTrainer = new User();
+        User user= new User(1L, "testName", "testSurname", "email@email.com", "12345678", Role.ROLE_CLIENT, trainer);
+
         user.setName("newName");
         assertEquals("newName", user.getName());
         user.setSurname("newSurname");
@@ -34,5 +42,13 @@ public class UserTest {
         assertEquals(Role.ROLE_TRAINER, user.getRole());
         user.setTrainer(newTrainer);
         assertEquals(newTrainer, user.getTrainer());
+    }
+
+    @Test
+    void shouldAssignTrainerToClient(){
+        User trainer = new User();
+        User user= new User(1L, "testName", "testSurname", "email@email.com", "12345678", Role.ROLE_CLIENT, trainer);
+
+        assertEquals(trainer, user.getTrainer());
     }
 }
