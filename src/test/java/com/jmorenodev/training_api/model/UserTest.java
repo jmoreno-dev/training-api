@@ -1,6 +1,7 @@
 package com.jmorenodev.training_api.model;
 
 import com.jmorenodev.training_api.model.enums.Role;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
 
@@ -8,10 +9,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class UserTest {
 
+    private User trainer;
+    private User user;
+
+    @BeforeEach
+    void setUp() {
+        trainer = new User();
+        // Configuramos los datos básicos que se repiten siempre
+        user = new User(1L, "testName", "testSurname", "email@email.com", "12345678", Role.ROLE_CLIENT, trainer);
+    }
+
     @Test
     void shouldGetUserFieldsUsingGetters(){
-         User trainer= new User();
-         User user= new User(1L, "testName", "testSurname", "email@email.com", "12345678", Role.ROLE_CLIENT, trainer);
 
         assertNotNull(user);
 
@@ -26,9 +35,7 @@ public class UserTest {
 
     @Test
     void shouldUpdateUserFieldsUsingSetters(){
-        User trainer= new User();
         User newTrainer = new User();
-        User user= new User(1L, "testName", "testSurname", "email@email.com", "12345678", Role.ROLE_CLIENT, trainer);
 
         user.setName("newName");
         assertEquals("newName", user.getName());
@@ -46,9 +53,6 @@ public class UserTest {
 
     @Test
     void shouldAssignTrainerToClient(){
-        User trainer = new User();
-        User user= new User(1L, "testName", "testSurname", "email@email.com", "12345678", Role.ROLE_CLIENT, trainer);
-
         assertEquals(trainer, user.getTrainer());
     }
 }
