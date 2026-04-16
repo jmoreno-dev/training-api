@@ -12,5 +12,6 @@ public enum Muscles {
     ADDUCTORS,
     QUADRICEPS,
     HAMSTRINGS,
-    CALVES
+    CALVES,
+    OTHER
 }
