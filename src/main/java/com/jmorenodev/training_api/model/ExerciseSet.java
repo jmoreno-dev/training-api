@@ -29,6 +29,7 @@ public class ExerciseSet {
     private double weight;
 
     @NotNull
+    @PositiveOrZero
     private Integer reps;
 
     @Enumerated (EnumType.STRING)
