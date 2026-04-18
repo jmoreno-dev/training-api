@@ -26,14 +26,15 @@ public class RoutineExercise {
     private double targetWeight;
 
     @Column (name = "target_reps")
+    @NotNull
     @Positive
-    private int targetReps;
+    private Integer targetReps;
 
     @Enumerated (EnumType.STRING)
     private Rpe targetRpe;
 
-    @Column (name = "target_seconds")
-    private double targetSeconds;
+    @Column (name = "target_rest_seconds")
+    private double targetRestSeconds;
 
     @ManyToOne
     @JoinColumn(name = "exercise_id")
