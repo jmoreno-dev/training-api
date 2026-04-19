@@ -43,5 +43,15 @@ public class UserTest {
         assertEquals("email", violations.iterator().next().getPropertyPath().toString());
     }
 
+    @Test
+    void shouldFailWhenNameIsTooShort() {
+        validUser.setName("A");
+
+        Set<ConstraintViolation<User>> violations = validator.validate(validUser);
+
+        assertFalse(violations.isEmpty());
+        assertEquals("name", violations.iterator().next().getPropertyPath().toString());
+    }
+
 
 }
