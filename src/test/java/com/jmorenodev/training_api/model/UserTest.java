@@ -1,58 +1,47 @@
 package com.jmorenodev.training_api.model;
 
 import com.jmorenodev.training_api.model.enums.Role;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
+
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserTest {
 
-    private User trainer;
-    private User user;
+    private Validator validator;
+    private User validUser;
 
     @BeforeEach
     void setUp() {
-        trainer = new User();
-        // Configuramos los datos básicos que se repiten siempre
-        user = new User(1L, "testName", "testSurname", "email@email.com", "12345678", Role.ROLE_CLIENT, trainer);
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        validator = factory.getValidator();
+
+        validUser = new User(1L, "Arnold", "Schwarzenegger", "arnold@goldengym.com", "securePass123", Role.ROLE_CLIENT, null);
+    }
+    @Test
+    void shouldPassValidationWhenUserIsValid() {
+        Set<ConstraintViolation<User>> violations = validator.validate(validUser);
+
+        assertTrue(violations.isEmpty(), "Usuario sin errores");
     }
 
     @Test
-    void shouldGetUserFieldsUsingGetters(){
+    void shouldFailWhenEmailIsInvalid(){
+        validUser.setEmail("email-without-format");
 
-        assertNotNull(user);
+        Set<ConstraintViolation<User>> violations = validator.validate(validUser);
 
-        assertEquals(1L, user.getId());
-         assertEquals("testName", user.getName());
-         assertEquals("testSurname", user.getSurname());
-         assertEquals("email@email.com", user.getEmail());
-         assertEquals("12345678", user.getPassword());
-         assertEquals(Role.ROLE_CLIENT, user.getRole());
-         assertEquals(trainer, user.getTrainer());
+        assertFalse(violations.isEmpty());
+        assertEquals(1, violations.size());
+        assertEquals("email", violations.iterator().next().getPropertyPath().toString());
     }
 
-    @Test
-    void shouldUpdateUserFieldsUsingSetters(){
-        User newTrainer = new User();
 
-        user.setName("newName");
-        assertEquals("newName", user.getName());
-        user.setSurname("newSurname");
-        assertEquals("newSurname", user.getSurname());
-        user.setEmail("newEmail@email.com");
-        assertEquals("newEmail@email.com", user.getEmail());
-        user.setPassword("012345678");
-        assertEquals("012345678", user.getPassword());
-        user.setRole(Role.ROLE_TRAINER);
-        assertEquals(Role.ROLE_TRAINER, user.getRole());
-        user.setTrainer(newTrainer);
-        assertEquals(newTrainer, user.getTrainer());
-    }
-
-    @Test
-    void shouldAssignTrainerToClient(){
-        assertEquals(trainer, user.getTrainer());
-    }
 }
