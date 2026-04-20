@@ -3,6 +3,7 @@ package com.jmorenodev.training_api.model;
 import com.jmorenodev.training_api.model.enums.Rpe;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,7 +23,7 @@ public class ExerciseSet {
     private Long id;
 
     @NotNull
-    @PositiveOrZero
+    @Positive
     private Integer setNumber;
 
     @PositiveOrZero
