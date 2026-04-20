@@ -23,20 +23,24 @@ public class User {
     private Long id;
 
     @NotBlank
+    @NotNull
     @Size (min = 2, max = 100)
     private String name;
 
     @NotBlank
+    @NotNull
     @Size (min = 2, max = 100)
     private String surname;
 
     @Column (unique = true)
     @Email
     @NotBlank
+    @NotNull
     private String email;
 
     @Size (min = 8, max = 100)
     @NotBlank
+    @NotNull
     private String password;
 
     @Enumerated(EnumType.STRING)
