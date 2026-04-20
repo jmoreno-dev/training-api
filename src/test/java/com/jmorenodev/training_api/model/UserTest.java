@@ -7,7 +7,6 @@ import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestFactory;
 
 import java.util.Set;
 
@@ -23,8 +22,9 @@ public class UserTest {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
 
-        validUser = new User(1L, "Arnold", "Schwarzenegger", "arnold@goldengym.com", "securePass123", Role.ROLE_CLIENT, null);
+        validUser = new User(1L, "Arnold", "Schwarzenegger", "arnold@goldsgym.com", "securePass123", Role.ROLE_CLIENT, null);
     }
+
     @Test
     void shouldPassValidationWhenUserIsValid() {
         Set<ConstraintViolation<User>> violations = validator.validate(validUser);
@@ -52,6 +52,5 @@ public class UserTest {
         assertFalse(violations.isEmpty());
         assertEquals("name", violations.iterator().next().getPropertyPath().toString());
     }
-
 
 }
