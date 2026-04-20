@@ -18,16 +18,14 @@ class ExerciseSetTest {
 
     private Validator validator;
     private ExerciseSet validExerciseSet;
-    private Exercise exercise;
-    private Session session;
 
     @BeforeEach
     void setUp() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
 
-        exercise = new Exercise(1L, "coercion", "description", Muscles.ABS);
-        session = new Session(1L, LocalDate.now(), new User(), new Routine());
+        Exercise exercise = new Exercise(1L, "coercion", "description", Muscles.ABS);
+        Session session = new Session(1L, LocalDate.now(), new User(), new Routine());
 
         validExerciseSet = new ExerciseSet(1L, 2, 25.5, 4, Rpe.RPE_8, 120, exercise, session);
     }
