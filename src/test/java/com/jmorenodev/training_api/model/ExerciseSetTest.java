@@ -1,6 +1,7 @@
 package com.jmorenodev.training_api.model;
 
 import com.jmorenodev.training_api.model.enums.Muscles;
+import com.jmorenodev.training_api.model.enums.Role;
 import com.jmorenodev.training_api.model.enums.Rpe;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
@@ -18,14 +19,16 @@ class ExerciseSetTest {
 
     private Validator validator;
     private ExerciseSet validExerciseSet;
+    private Routine routine;
 
     @BeforeEach
     void setUp() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
+        User user = new User(1L, "name", "surname", "email@email.com", "12345678", Role.ROLE_CLIENT, null);
 
         Exercise exercise = new Exercise(1L, "coercion", "description", Muscles.ABS);
-        Session session = new Session(1L, LocalDate.now(), new User(), new Routine());
+        Session session = new Session(1L, LocalDate.now(), user, routine);
 
         validExerciseSet = new ExerciseSet(1L, 2, 25.5, 4, Rpe.RPE_8, 120, exercise, session);
     }
