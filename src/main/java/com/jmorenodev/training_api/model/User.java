@@ -30,7 +30,7 @@ public class User {
     @Size (min = 2, max = 100)
     private String surname;
 
-    @Column (name = "email", unique = true)
+    @Column (unique = true)
     @Email
     @NotBlank
     private String email;
