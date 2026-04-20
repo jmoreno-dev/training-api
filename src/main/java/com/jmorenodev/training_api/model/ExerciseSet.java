@@ -37,6 +37,7 @@ public class ExerciseSet {
     private Rpe rpe;
 
     @Column (name = "rest_seconds")
+    @PositiveOrZero
     private double restSeconds;
 
     @ManyToOne
