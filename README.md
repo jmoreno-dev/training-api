@@ -4,37 +4,38 @@
 ![Spring Boot 3.5](https://img.shields.io/badge/Spring_Boot-3.5-brightgreen?style=flat-square&logo=spring)
 ![JUnit 5](https://img.shields.io/badge/JUnit-5-red?style=flat-square&logo=junit5)
 
-API REST para la gestión integral de entrenamiento de fuerza (Powerbuilding) y acondicionamiento.
+REST API for the comprehensive management of strength training (Powerbuilding) and conditioning.
 
-Este proyecto está diseñado desde cero, priorizando la centralización de la lógica de negocio y el blindaje de los datos mediante modelos ricos (evitando el antipatrón de modelos anémicos).
+This project is designed from scratch, prioritizing the centralization of business logic and data shielding through rich domain models (avoiding the anemic domain model anti-pattern).
 
-## 🛠️ Stack Tecnológico
+## 🛠️ Tech Stack
 
-**Fase Actual (Dominio y Testing):**
-* **Lenguaje:** Java 21
+**Current Phase (Domain and Testing):**
+* **Language:** Java 21
 * **Framework:** Spring Boot 3.5.0
-* **Validaciones:** Jakarta Validation
-* **Testing:** JUnit 5 (Aislamiento de tests unitarios con `ValidatorFactory`)
+* **Validations:** Jakarta Validation
+* **Testing:** JUnit 5 (Unit test isolation with `ValidatorFactory`)
 
-**Próximas Fases (En Roadmap):**
-* **Persistencia:** PostgreSQL + Spring Data JPA + Flyway
-* **Testing Avanzado:** Mockito + Testcontainers
-* **Infraestructura:** Docker, Docker Compose, GitHub Actions (CI/CD)
-* **Cloud:** AWS (Despliegue y operación)
+**Upcoming Phases (Roadmap):**
+* **Persistence:** PostgreSQL + Spring Data JPA + Flyway
+* **Advanced Testing:** Mockito + Testcontainers
+* **Infrastructure:** Docker, Docker Compose, GitHub Actions (CI/CD)
+* **Cloud:** AWS (Deployment and operation)
 
-## 🚦 Estado del Proyecto: Work In Progress (Fase 1)
+## 🚦 Project Status: Work In Progress (Phase 1)
 
-Actualmente, el proyecto se encuentra en la fase de **modelado de dominio**. El núcleo de la aplicación está construido y protegido.
+Currently, the project is in the **domain modeling** phase. The core of the application is built and secured.
 
-* ✅ Entidades implementadas: `User`, `Exercise`, `Routine`, `Session`, `ExerciseSet`.
-* ✅ **Zero-Trust Models:** Reglas de negocio protegidas directamente en las entidades mediante Jakarta Validation (`@NotBlank`, `@Size`, `@Positive`, etc.).
-* ✅ Cobertura de tests unitarios ultrarrápidos para garantizar la integridad de los datos sin depender del contexto de Spring.
+* ✅ Implemented entities: `User`, `Exercise`, `Routine`, `Session`, `ExerciseSet`.
+* ✅ **Zero-Trust Models:** Business rules protected directly within the entities using Jakarta Validation (`@NotBlank`, `@Size`, `@Positive`, etc.).
+* ✅ Ultra-fast unit test coverage to guarantee data integrity without depending on the Spring context.
 
-## 🚀 Cómo ejecutar en local
+## 🚀 How to run locally
 
-Puesto que el proyecto está enfocado actualmente en la capa de dominio y testing, no necesitas levantar bases de datos ni contenedores para comprobar la lógica.
+Since the project is focused strictly on the domain and testing layers at the moment, you do not need to spin up databases or containers to verify the logic.
 
-1. Clona el repositorio:
+1. Clone the repository:
 ```bash
-git clone [https://github.com/tu-usuario/training-api.git](https://github.com/tu-usuario/training-api.git)
+git clone https://github.com/tu-usuario/training-api.git
 cd training-api
+```
