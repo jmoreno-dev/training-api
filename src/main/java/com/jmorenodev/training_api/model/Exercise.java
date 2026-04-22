@@ -19,10 +19,10 @@ public class Exercise {
     private Long id;
 
     @NotBlank
+    @NotNull
     @Size(min = 2, max = 100)
     private String name;
 
-    @NotBlank
     @Size (min = 2, max = 100)
     private String description;
 
