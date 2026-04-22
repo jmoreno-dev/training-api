@@ -63,8 +63,21 @@ class RoutineTest {
 
         Set<ConstraintViolation<Routine>> violations = validator.validate(validRoutine);
 
-        assertFalse(violations.isEmpty(), "La lista no viene vacía: "+violations);
+        assertFalse(violations.isEmpty(), "Se coló un dato nulo: "+violations);
         assertEquals(2, violations.size());
+        for (ConstraintViolation<Routine> violation : violations) {
+            assertEquals("name", violation.getPropertyPath().toString());
+        }
+    }
+
+    @Test
+    void shouldFailWhenNameIsOnlySpaces(){
+        validRoutine.setName("     ");
+
+        Set<ConstraintViolation<Routine>> violations = validator.validate(validRoutine);
+
+        assertFalse(violations.isEmpty(), "La lista no viene vacía: "+violations);
+        assertEquals(1, violations.size());
         assertEquals("name", violations.iterator().next().getPropertyPath().toString());
     }
 
