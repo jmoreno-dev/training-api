@@ -35,7 +35,7 @@ class ExerciseTest {
     }
 
     @Test
-    void shouldFailWithNameShorterThanTwoLetters(){
+    void shouldFailWithNameShorterThanTwoCharacters(){
         validExercise.setName("a");
 
         Set<ConstraintViolation<Exercise>> violations = validator.validate(validExercise);
@@ -46,7 +46,7 @@ class ExerciseTest {
     }
 
     @Test
-    void shouldFailWithNameLargerThanOneHundredLetters(){
+    void shouldFailWithNameLongerThanOneHundredCharacters(){
         String invalidName = "a";
         String newName = invalidName.repeat(101);
         validExercise.setName(newName);
@@ -59,7 +59,7 @@ class ExerciseTest {
     }
 
     @Test
-    void shouldFailWithDescriptionShorterThanTwoLetters(){
+    void shouldFailWithDescriptionShorterThanTwoCharacters(){
         validExercise.setDescription("b");
 
         Set<ConstraintViolation<Exercise>> violations = validator.validate(validExercise);
@@ -70,7 +70,7 @@ class ExerciseTest {
     }
 
     @Test
-    void shouldFailWithDescriptionLargerThanOneHundredLetters(){
+    void shouldFailWithDescriptionLargerThanOneHundredCharacters(){
         String invalidDescription = "b";
         String newDescription = invalidDescription.repeat(101);
         validExercise.setDescription(newDescription);
