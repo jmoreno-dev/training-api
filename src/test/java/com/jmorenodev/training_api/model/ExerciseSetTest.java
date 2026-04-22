@@ -34,7 +34,7 @@ class ExerciseSetTest {
     }
 
     @Test
-    void shouldPassValidationWhenExerciseSetIsValid(){
+    void shouldPassValidationWhenAllFieldsAreValid(){
         assertNotNull(validExerciseSet);
 
         Set<ConstraintViolation<ExerciseSet>> violations = validator.validate(validExerciseSet);

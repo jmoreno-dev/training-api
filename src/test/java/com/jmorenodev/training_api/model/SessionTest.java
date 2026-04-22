@@ -28,7 +28,7 @@ class SessionTest {
     }
 
     @Test
-    void shouldPassWhenAllIsCorrect(){
+    void shouldPassValidationWhenAllFieldsAreValid(){
         assertNotNull(validSession);
 
         Set<ConstraintViolation<Session>> violations = validator.validate(validSession);

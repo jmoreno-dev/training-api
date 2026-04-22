@@ -26,7 +26,7 @@ public class UserTest {
     }
 
     @Test
-    void shouldPassValidationWhenUserIsValid() {
+    void shouldPassValidationWhenAllFieldsAreValid() {
         Set<ConstraintViolation<User>> violations = validator.validate(validUser);
 
         assertTrue(violations.isEmpty(), "Usuario sin errores");

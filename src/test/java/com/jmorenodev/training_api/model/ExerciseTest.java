@@ -26,7 +26,7 @@ class ExerciseTest {
     }
 
     @Test
-    void shouldCreateExercise(){
+    void shouldPassValidationWhenAllFieldsAreValid(){
         assertNotNull(validExercise);
 
         Set<ConstraintViolation<Exercise>> violations = validator.validate(validExercise);
