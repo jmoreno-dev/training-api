@@ -27,7 +27,7 @@ public class ExerciseSet {
     private Integer setNumber;
 
     @PositiveOrZero
-    private double weight;
+    private Double weight;
 
     @NotNull
     @PositiveOrZero
