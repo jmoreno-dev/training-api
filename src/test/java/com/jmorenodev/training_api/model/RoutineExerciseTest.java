@@ -83,6 +83,17 @@ class RoutineExerciseTest {
     }
 
     @Test
+    void shouldFailWhenTargetRepsAreNull(){
+        validRoutineExercise.setTargetReps(null);
+
+        Set<ConstraintViolation<RoutineExercise>> violations = validator.validate(validRoutineExercise);
+
+        assertFalse(violations.isEmpty());
+        assertEquals(1, violations.size());
+        assertEquals("targetReps", violations.iterator().next().getPropertyPath().toString());
+    }
+
+    @Test
     void shouldFailWhenTargetRestSecondsAreNegative(){
         validRoutineExercise.setTargetRestSeconds(-1);
 
@@ -91,6 +102,15 @@ class RoutineExerciseTest {
         assertFalse(violations.isEmpty());
         assertEquals(1, violations.size());
         assertEquals("targetRestSeconds", violations.iterator().next().getPropertyPath().toString());
+    }
+
+    @Test
+    void shouldPassWhenTargetRestSecondsAreZero(){
+        validRoutineExercise.setTargetRestSeconds(0);
+
+        Set<ConstraintViolation<RoutineExercise>> violations = validator.validate(validRoutineExercise);
+
+        assertTrue(violations.isEmpty());
     }
 
     @Test
