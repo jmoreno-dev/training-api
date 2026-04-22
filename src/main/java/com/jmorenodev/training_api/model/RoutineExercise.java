@@ -36,7 +36,7 @@ public class RoutineExercise {
 
     @Column (name = "target_rest_seconds")
     @PositiveOrZero
-    private double targetRestSeconds;
+    private Integer targetRestSeconds;
 
     @ManyToOne
     @JoinColumn(name = "exercise_id")
