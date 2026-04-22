@@ -23,8 +23,9 @@ class SessionTest {
         validator = factory.getValidator();
 
         User user = new User(1L, "name", "surname", "email@email.com", "12345678", Role.CLIENT, null);
+        Routine routine = new Routine(1L, "Heavy leg day", user);
 
-        validSession = new Session(1L, LocalDate.now(), user, new Routine());
+        validSession = new Session(1L, LocalDate.now(), user, routine);
     }
 
     @Test
@@ -48,6 +49,24 @@ class SessionTest {
     }
 
     @Test
+    void shouldPassIfSetPastDate(){
+        validSession.setDate(LocalDate.of(1300, 4, 3));
+
+        Set<ConstraintViolation<Session>> violations = validator.validate(validSession);
+
+        assertTrue(violations.isEmpty());
+    }
+
+    @Test
+    void shouldPassIfSetPresentDate(){
+        validSession.setDate(LocalDate.now());
+
+        Set<ConstraintViolation<Session>> violations = validator.validate(validSession);
+
+        assertTrue(violations.isEmpty());
+    }
+
+    @Test
     void shouldFailWhenDateIsNull(){
         validSession.setDate(null);
 
@@ -56,14 +75,6 @@ class SessionTest {
         assertFalse(violations.isEmpty());
         assertEquals(1, violations.size());
         assertEquals("date", violations.iterator().next().getPropertyPath().toString());
-    }
-
-    @Test
-    void ensureNowIsActuallyNow(){
-
-        Set<ConstraintViolation<Session>> violations = validator.validate(validSession);
-
-        assertTrue(violations.isEmpty());
     }
 
     @Test
