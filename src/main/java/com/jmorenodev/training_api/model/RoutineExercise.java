@@ -35,6 +35,7 @@ public class RoutineExercise {
     private Rpe targetRpe;
 
     @Column (name = "target_rest_seconds")
+    @PositiveOrZero
     private double targetRestSeconds;
 
     @ManyToOne
