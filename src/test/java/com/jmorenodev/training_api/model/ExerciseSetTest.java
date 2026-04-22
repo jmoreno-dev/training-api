@@ -24,7 +24,7 @@ class ExerciseSetTest {
     void setUp() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
-        User user = new User(1L, "name", "surname", "email@email.com", "12345678", Role.ROLE_CLIENT, null);
+        User user = new User(1L, "name", "surname", "email@email.com", "12345678", Role.CLIENT, null);
         Routine routine =  new Routine(1L, "name", user);
 
         Exercise exercise = new Exercise(1L, "coercion", "description", Muscles.ABS);
@@ -55,7 +55,7 @@ class ExerciseSetTest {
 
     @Test
     void shouldFailSettingNegativeWeight(){
-        validExerciseSet.setWeight(-3);
+        validExerciseSet.setWeight(-3.0);
 
         Set<ConstraintViolation<ExerciseSet>> violations = validator.validate(validExerciseSet);
 
