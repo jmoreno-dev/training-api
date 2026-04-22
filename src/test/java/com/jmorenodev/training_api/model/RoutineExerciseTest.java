@@ -25,7 +25,7 @@ class RoutineExerciseTest {
         validator = factory.getValidator();
 
         Exercise exercise = new Exercise(1L, "Squat", "description", Muscles.ABS);
-        User user = new User(1L, "Juan", "Moreno", "juan@test.com", "12345678", Role.CLIENT, null);
+        User user = new User(1L, "Juan", "Moreno", "juan@test.com", "securePass123", Role.CLIENT, null);
         Routine routine = new Routine(1L, "Heavy leg day", user);
 
         validRoutineExercise = new RoutineExercise(1L, 25.5, 4, Rpe.RPE_8, 30, exercise, routine);

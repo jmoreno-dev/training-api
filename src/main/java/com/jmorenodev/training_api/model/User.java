@@ -2,10 +2,7 @@ package com.jmorenodev.training_api.model;
 
 import com.jmorenodev.training_api.model.enums.Role;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,6 +38,8 @@ public class User {
     @Size (min = 8, max = 100)
     @NotBlank
     @NotNull
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$",
+            message = "Password must contain at least one uppercase letter, one lowercase letter, and one number")
     private String password;
 
     @Enumerated(EnumType.STRING)
