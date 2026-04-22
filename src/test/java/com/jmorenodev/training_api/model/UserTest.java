@@ -22,7 +22,7 @@ public class UserTest {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
 
-        validUser = new User(1L, "Arnold", "Schwarzenegger", "arnold@goldsgym.com", "securePass123", Role.ROLE_CLIENT, null);
+        validUser = new User(1L, "Arnold", "Schwarzenegger", "arnold@goldsgym.com", "securePass123", Role.CLIENT, null);
     }
 
     @Test

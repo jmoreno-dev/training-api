@@ -22,7 +22,7 @@ class SessionTest {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
 
-        User user = new User(1L, "name", "surname", "email@email.com", "12345678", Role.ROLE_CLIENT, null);
+        User user = new User(1L, "name", "surname", "email@email.com", "12345678", Role.CLIENT, null);
 
         validSession = new Session(1L, LocalDate.now(), user, new Routine());
     }
