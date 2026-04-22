@@ -24,9 +24,9 @@ class ExerciseSetTest {
     void setUp() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
+
         User user = new User(1L, "name", "surname", "email@email.com", "12345678", Role.CLIENT, null);
         Routine routine =  new Routine(1L, "name", user);
-
         Exercise exercise = new Exercise(1L, "coercion", "description", Muscles.ABS);
         Session session = new Session(1L, LocalDate.now(), user, routine);
 
@@ -76,7 +76,7 @@ class ExerciseSetTest {
     }
 
     @Test
-    void shouldFailSettingNegativeRest(){
+    void shouldFailSettingNegativeRestSeconds(){
         validExerciseSet.setRestSeconds(-60);
 
         Set<ConstraintViolation<ExerciseSet>> violations = validator.validate(validExerciseSet);

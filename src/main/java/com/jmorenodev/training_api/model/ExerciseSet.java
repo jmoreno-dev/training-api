@@ -38,7 +38,7 @@ public class ExerciseSet {
 
     @Column (name = "rest_seconds")
     @PositiveOrZero
-    private double restSeconds;
+    private Integer restSeconds;
 
     @ManyToOne
     @JoinColumn(name = "exercise_id")
