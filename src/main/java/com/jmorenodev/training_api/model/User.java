@@ -20,23 +20,19 @@ public class User {
     private Long id;
 
     @NotBlank
-    @NotNull
     @Size (min = 2, max = 100)
     private String name;
 
     @NotBlank
-    @NotNull
     @Size (min = 2, max = 100)
     private String surname;
 
     @Column (unique = true)
     @Email
     @NotBlank
-    @NotNull
     private String email;
 
     @NotBlank
-    @NotNull
     @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$",
             message = "Password must contain at least one uppercase letter, one lowercase letter, and one number")
     private String password;

@@ -19,11 +19,10 @@ public class Exercise {
     private Long id;
 
     @NotBlank
-    @NotNull
     @Size(min = 2, max = 100)
     private String name;
 
-    @Size (min = 2, max = 100)
+    @Size (max = 255)
     private String description;
 
     @Enumerated(EnumType.STRING)
