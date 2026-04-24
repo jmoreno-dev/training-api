@@ -36,6 +36,17 @@ class RoutineTest {
     }
 
     @Test
+    void shouldFailWhenNameIsShorterThanTwoCharacters(){
+        validRoutine.setName("a");
+
+        Set<ConstraintViolation<Routine>> violations = validator.validate(validRoutine);
+
+        assertFalse(violations.isEmpty());
+        assertEquals(1, violations.size());
+        assertEquals("name", violations.iterator().next().getPropertyPath().toString());
+    }
+
+    @Test
     void shouldFailWhenNameIsLongerThanOneHundredCharacters(){
         validRoutine.setName(("a").repeat(101));
 
