@@ -35,7 +35,6 @@ public class User {
     @NotNull
     private String email;
 
-    @Size (min = 8, max = 100)
     @NotBlank
     @NotNull
     @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$",
