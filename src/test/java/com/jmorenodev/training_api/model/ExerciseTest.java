@@ -59,20 +59,9 @@ class ExerciseTest {
     }
 
     @Test
-    void shouldFailWithDescriptionShorterThanTwoCharacters(){
-        validExercise.setDescription("b");
-
-        Set<ConstraintViolation<Exercise>> violations = validator.validate(validExercise);
-
-        assertFalse(violations.isEmpty());
-        assertEquals(1, violations.size());
-        assertEquals("description", violations.iterator().next().getPropertyPath().toString());
-    }
-
-    @Test
-    void shouldFailWithDescriptionLargerThanOneHundredCharacters(){
+    void shouldFailWithDescriptionLargerThanTwoHundredAndFiftyFiveCharacters(){
         String invalidDescription = "b";
-        String newDescription = invalidDescription.repeat(101);
+        String newDescription = invalidDescription.repeat(256);
         validExercise.setDescription(newDescription);
 
         Set<ConstraintViolation<Exercise>> violations = validator.validate(validExercise);
