@@ -20,7 +20,7 @@ public class User {
     private Long id;
 
     @NotBlank
-    @Column (nullable = false) // Poner en todos los campos con @NotBlank o @NotNull el nullable false de JPA
+    @Column (nullable = false)
     @Size (min = 2, max = 100)
     private String name;
 

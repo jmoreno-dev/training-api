@@ -19,6 +19,7 @@ public class Exercise {
     private Long id;
 
     @NotBlank
+    @Column (nullable = false)
     @Size(min = 2, max = 100)
     private String name;
 
@@ -27,5 +28,6 @@ public class Exercise {
 
     @Enumerated(EnumType.STRING)
     @NotNull
+    @Column (nullable = false)
     private Muscles muscleGroup;
 }

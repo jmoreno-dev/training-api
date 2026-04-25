@@ -23,6 +23,7 @@ public class ExerciseSet {
     private Long id;
 
     @NotNull
+    @Column (nullable = false)
     @Positive
     private Integer setNumber;
 
@@ -30,6 +31,7 @@ public class ExerciseSet {
     private Double weight;
 
     @NotNull
+    @Column (nullable = false)
     @PositiveOrZero
     private Integer reps;
 

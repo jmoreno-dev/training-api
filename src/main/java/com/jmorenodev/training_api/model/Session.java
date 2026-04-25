@@ -24,6 +24,7 @@ public class Session {
 
     @PastOrPresent
     @NotNull
+    @Column (nullable = false)
     private LocalDate date;
 
     @ManyToOne

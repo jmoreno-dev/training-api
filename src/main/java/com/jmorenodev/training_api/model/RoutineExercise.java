@@ -26,7 +26,7 @@ public class RoutineExercise {
     @PositiveOrZero
     private Double targetWeight;
 
-    @Column (name = "target_reps")
+    @Column (name = "target_reps", nullable = false)
     @NotNull
     @Positive
     private Integer targetReps;

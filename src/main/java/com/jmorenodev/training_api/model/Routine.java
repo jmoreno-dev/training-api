@@ -19,6 +19,7 @@ public class Routine {
     private Long id;
 
     @NotBlank
+    @Column (nullable = false)
     @Size (min = 2, max = 100)
     private String name;
 
