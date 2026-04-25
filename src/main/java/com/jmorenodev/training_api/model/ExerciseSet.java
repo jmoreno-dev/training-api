@@ -3,6 +3,7 @@ package com.jmorenodev.training_api.model;
 import com.jmorenodev.training_api.model.enums.Rpe;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,13 +23,15 @@ public class ExerciseSet {
     private Long id;
 
     @NotNull
-    @PositiveOrZero
+    @Column (nullable = false)
+    @Positive
     private Integer setNumber;
 
     @PositiveOrZero
-    private double weight;
+    private Double weight;
 
     @NotNull
+    @Column (nullable = false)
     @PositiveOrZero
     private Integer reps;
 
@@ -36,7 +39,8 @@ public class ExerciseSet {
     private Rpe rpe;
 
     @Column (name = "rest_seconds")
-    private double restSeconds;
+    @PositiveOrZero
+    private Integer restSeconds;
 
     @ManyToOne
     @JoinColumn(name = "exercise_id")
