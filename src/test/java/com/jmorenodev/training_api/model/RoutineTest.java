@@ -1,5 +1,6 @@
 package com.jmorenodev.training_api.model;
 
+import com.jmorenodev.training_api.model.enums.Role;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
@@ -21,7 +22,7 @@ class RoutineTest {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
 
-        User user = new User();
+        User user = new User(1L, "name", "surname", "test@email.com", "Pass1234", Role.CLIENT, null);
 
         validRoutine = new Routine(1L, "name", user);
     }
@@ -64,9 +65,10 @@ class RoutineTest {
         Set<ConstraintViolation<Routine>> violations = validator.validate(validRoutine);
 
         assertFalse(violations.isEmpty(), "La lista no viene vacía, se encontraron :" + violations);
-        assertEquals(1, violations.size());
-        assertEquals("name", violations.iterator().next().getPropertyPath().toString());
-    }
+        assertEquals(2, violations.size());
+        for (ConstraintViolation<Routine> violation : violations) {
+            assertEquals("name", violation.getPropertyPath().toString());
+        }    }
 
     @Test
     void shouldFailWhenNameIsNull(){
@@ -75,10 +77,9 @@ class RoutineTest {
         Set<ConstraintViolation<Routine>> violations = validator.validate(validRoutine);
 
         assertFalse(violations.isEmpty(), "Se coló un dato nulo: "+violations);
-        assertEquals(2, violations.size());
-        for (ConstraintViolation<Routine> violation : violations) {
-            assertEquals("name", violation.getPropertyPath().toString());
-        }
+        assertEquals(1, violations.size());
+        assertEquals("name", violations.iterator().next().getPropertyPath().toString());
+
     }
 
     @Test
