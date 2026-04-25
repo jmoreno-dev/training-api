@@ -20,19 +20,22 @@ public class User {
     private Long id;
 
     @NotBlank
+    @Column (nullable = false) // Poner en todos los campos con @NotBlank o @NotNull el nullable false de JPA
     @Size (min = 2, max = 100)
     private String name;
 
     @NotBlank
+    @Column (nullable = false)
     @Size (min = 2, max = 100)
     private String surname;
 
-    @Column (unique = true)
+    @Column (unique = true, nullable = false)
     @Email
     @NotBlank
     private String email;
 
     @NotBlank
+    @Column (nullable = false)
     @Size (max = 100)
     @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$",
             message = "Password must contain at least one uppercase letter, one lowercase letter, and one number")
@@ -40,6 +43,7 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     @NotNull
+    @Column (nullable = false)
     private Role role;
 
     @ManyToOne
