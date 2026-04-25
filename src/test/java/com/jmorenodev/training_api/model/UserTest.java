@@ -54,7 +54,6 @@ public class UserTest {
         assertFalse(violations.isEmpty());
         assertEquals(1, violations.size());
         assertEquals("name", violations.iterator().next().getPropertyPath().toString());
-
     }
 
     @Test
@@ -64,10 +63,8 @@ public class UserTest {
         Set<ConstraintViolation<User>> violations = validator.validate(validUser);
 
         assertFalse(violations.isEmpty());
-        assertEquals(2, violations.size());
-        for (ConstraintViolation<User> violation : violations) {
-            assertEquals("name", violation.getPropertyPath().toString());
-        }
+        assertEquals(1, violations.size());
+        assertEquals("name", violations.iterator().next().getPropertyPath().toString());
     }
 
     @Test
@@ -125,10 +122,9 @@ public class UserTest {
         Set<ConstraintViolation<User>> violations = validator.validate(validUser);
 
         assertFalse(violations.isEmpty());
-        assertEquals(2, violations.size());
-        for (ConstraintViolation<User> violation : violations) {
-            assertEquals("surname", violation.getPropertyPath().toString());
-        }
+        assertEquals(1, violations.size());
+        assertEquals("surname", violations.iterator().next().getPropertyPath().toString());
+
     }
 
     @Test
@@ -192,10 +188,9 @@ public class UserTest {
         Set<ConstraintViolation<User>> violations = validator.validate(validUser);
 
         assertFalse(violations.isEmpty());
-        assertEquals(2, violations.size());
-        for (ConstraintViolation<User> violation : violations) {
-            assertEquals("email", violation.getPropertyPath().toString());
-        }
+        assertEquals(1, violations.size());
+        assertEquals("email", violations.iterator().next().getPropertyPath().toString());
+
     }
 
 
@@ -207,10 +202,9 @@ public class UserTest {
         Set<ConstraintViolation<User>> violations = validator.validate(validUser);
 
         assertFalse(violations.isEmpty());
-        assertEquals(2, violations.size());
-        for (ConstraintViolation<User> violation : violations) {
-            assertEquals("password", violation.getPropertyPath().toString());
-        }
+        assertEquals(1, violations.size());
+        assertEquals("password", violations.iterator().next().getPropertyPath().toString());
+
     }
 
     @Test
@@ -220,7 +214,7 @@ public class UserTest {
         Set<ConstraintViolation<User>> violations = validator.validate(validUser);
 
         assertFalse(violations.isEmpty());
-        assertEquals(3, violations.size());
+        assertEquals(2, violations.size());
         for (ConstraintViolation<User> violation : violations) {
             assertEquals("password", violation.getPropertyPath().toString());
         }
@@ -233,7 +227,7 @@ public class UserTest {
         Set<ConstraintViolation<User>> violations = validator.validate(validUser);
 
         assertFalse(violations.isEmpty());
-        assertEquals(3, violations.size());
+        assertEquals(2, violations.size());
         for (ConstraintViolation<User> violation : violations) {
             assertEquals("password", violation.getPropertyPath().toString());
         }
@@ -246,10 +240,9 @@ public class UserTest {
         Set<ConstraintViolation<User>> violations = validator.validate(validUser);
 
         assertFalse(violations.isEmpty());
-        assertEquals(2, violations.size());
-        for (ConstraintViolation<User> violation : violations) {
-            assertEquals("password", violation.getPropertyPath().toString());
-        }
+        assertEquals(1, violations.size());
+        assertEquals("password", violations.iterator().next().getPropertyPath().toString());
+
     }
 
     @Test
