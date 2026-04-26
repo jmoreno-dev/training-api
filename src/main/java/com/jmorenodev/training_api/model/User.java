@@ -37,8 +37,6 @@ public class User {
     @NotBlank
     @Column (nullable = false)
     @Size (max = 100)
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$",
-            message = "Password must contain at least one uppercase letter, one lowercase letter, and one number")
     private String password;
 
     @Enumerated(EnumType.STRING)

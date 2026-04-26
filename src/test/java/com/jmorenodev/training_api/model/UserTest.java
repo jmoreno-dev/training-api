@@ -204,7 +204,6 @@ public class UserTest {
         assertFalse(violations.isEmpty());
         assertEquals(1, violations.size());
         assertEquals("password", violations.iterator().next().getPropertyPath().toString());
-
     }
 
     @Test
@@ -214,62 +213,14 @@ public class UserTest {
         Set<ConstraintViolation<User>> violations = validator.validate(validUser);
 
         assertFalse(violations.isEmpty());
-        assertEquals(2, violations.size());
-        for (ConstraintViolation<User> violation : violations) {
-            assertEquals("password", violation.getPropertyPath().toString());
-        }
+        assertEquals(1, violations.size());
+        assertEquals("password", violations.iterator().next().getPropertyPath().toString());
+
     }
 
     @Test
     void shouldFailWhenPasswordIsOnlySpaces(){
         validUser.setPassword("    ");
-
-        Set<ConstraintViolation<User>> violations = validator.validate(validUser);
-
-        assertFalse(violations.isEmpty());
-        assertEquals(2, violations.size());
-        for (ConstraintViolation<User> violation : violations) {
-            assertEquals("password", violation.getPropertyPath().toString());
-        }
-    }
-
-    @Test
-    void shouldFailWhenPasswordIsShorterThanEightCharacters() {
-        validUser.setPassword("Pass567");
-
-        Set<ConstraintViolation<User>> violations = validator.validate(validUser);
-
-        assertFalse(violations.isEmpty());
-        assertEquals(1, violations.size());
-        assertEquals("password", violations.iterator().next().getPropertyPath().toString());
-
-    }
-
-    @Test
-    void shouldFailWhenPasswordHasNoDigit(){
-        validUser.setPassword("Passwordd");
-
-        Set<ConstraintViolation<User>> violations = validator.validate(validUser);
-
-        assertFalse(violations.isEmpty());
-        assertEquals(1, violations.size());
-        assertEquals("password", violations.iterator().next().getPropertyPath().toString());
-    }
-
-    @Test
-    void shouldFailWhenPasswordHasNoUppercaseCharacter(){
-        validUser.setPassword("password1234");
-
-        Set<ConstraintViolation<User>> violations = validator.validate(validUser);
-
-        assertFalse(violations.isEmpty());
-        assertEquals(1, violations.size());
-        assertEquals("password", violations.iterator().next().getPropertyPath().toString());
-    }
-
-    @Test
-    void shouldFailWhenPasswordHasNoLowercaseCharacter(){
-        validUser.setPassword("PASSWORD1234");
 
         Set<ConstraintViolation<User>> violations = validator.validate(validUser);
 
