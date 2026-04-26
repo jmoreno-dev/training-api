@@ -36,7 +36,7 @@ public class User {
 
     @NotBlank
     @Column (nullable = false)
-    @Size (max = 100)
+    @Size (max = 255)
     private String password;
 
     @Enumerated(EnumType.STRING)
@@ -44,7 +44,7 @@ public class User {
     @Column (nullable = false)
     private Role role;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "trainer_id")
     private User trainer;
 }
