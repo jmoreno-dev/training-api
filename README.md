@@ -6,9 +6,7 @@
 ![JUnit 5](https://img.shields.io/badge/JUnit-5-red?style=flat-square&logo=junit5)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 
-A robust REST API for fitness coaching management.
-
-Built by merging backend technical discipline with real-world sports physiotherapy and high-level powerbuilding expertise, this project models the true complexities of strength programming. It prioritizes **Domain-Driven Design (DDD)** concepts, ensuring business logic centralization and shielding against the anemic domain model anti-pattern.
+REST API for fitness coaching management, designed with a focus on keeping business rules inside the domain models and avoiding the anemic domain model anti-pattern.
 
 ## 🛠️ Tech Stack
 
@@ -96,17 +94,17 @@ erDiagram
 ```
 ## 🚦 Project Status (Vertical Slicing)
 
-| Layer / Feature | Status |
-| :--- | :---: |
-| **Domain models + Jakarta validations** | ✅ Done |
-| **Unit tests (model constraint coverage)** | ✅ Done |
-| **Database schema design** | ✅ Done |
-| Docker + PostgreSQL setup | ⏳ Pending |
-| Flyway migrations | ⏳ Pending |
-| Repository & Service layers | ⏳ Pending |
-| REST controllers & Swagger | ⏳ Pending |
-| JWT Authentication (Spring Security) | ⏳ Pending |
-| CI/CD (GitHub Actions) | ⏳ Pending |
+| Layer / Feature                            |  Status   |
+|:-------------------------------------------|:---------:|
+| **Domain models + Jakarta validations**    |  ✅ Done   |
+| **Unit tests (model constraint coverage)** |  ✅ Done   |
+| **Database schema design**                 |  ✅ Done   |
+| Docker + PostgreSQL setup                  | ⏳ Pending |
+| Flyway migrations                          | ⏳ Pending |
+| Repository & Service layers                | ⏳ Pending |
+| REST controllers & Swagger                 | ⏳ Pending |
+| JWT Authentication (Spring Security)       | ⏳ Pending |
+| CI/CD (GitHub Actions)                     | ⏳ Pending |
 
 ## 🚀 Getting Started
 
