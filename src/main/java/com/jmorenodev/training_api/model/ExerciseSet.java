@@ -23,7 +23,7 @@ public class ExerciseSet {
     private Long id;
 
     @NotNull
-    @Column (nullable = false)
+    @Column (name= "set_number", nullable = false)
     @Positive
     private Integer setNumber;
 
