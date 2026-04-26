@@ -10,7 +10,7 @@ REST API for fitness coaching management, designed with a focus on keeping busin
 
 ## 🛠️ Tech Stack
 
-* **Core:** Java 21 + Spring Boot 3.4
+* **Core:** Java 21 + Spring Boot 4.0.5
 * **Security:** Spring Security + JWT authentication
 * **Persistence:** Spring Data JPA + PostgreSQL + Flyway (Migrations)
 * **Validations:** Jakarta Validation (Zero-Trust Models)
