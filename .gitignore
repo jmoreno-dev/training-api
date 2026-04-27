@@ -34,3 +34,5 @@ build/
 
 ### Ignorar configuraciones locales ###
 *-local.properties
+
+.env
