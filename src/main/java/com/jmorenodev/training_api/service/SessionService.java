@@ -2,7 +2,6 @@ package com.jmorenodev.training_api.service;
 
 import com.jmorenodev.training_api.model.Session;
 import com.jmorenodev.training_api.repository.SessionRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,7 +24,7 @@ public class SessionService {
         return sessionRepository.findById(id);
     }
 
-    public Session saveOrUpdateSession(Session session){
+    public Session createSession(Session session){
         return sessionRepository.save(session);
     }
 
