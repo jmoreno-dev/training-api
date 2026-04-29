@@ -146,7 +146,7 @@ erDiagram
 | Docker + PostgreSQL setup                  |  ✅ Done   |
 | Configuration & Environment Management    |  ✅ Done   |
 | Flyway migrations                          | ⏳ Pending |
-| Repository & Service layers                | ⏳ Pending |
+| Repository & Service layers                |  ✅ Done   |
 | REST controllers & Swagger                 | ⏳ Pending |
 | JWT Authentication (Spring Security)       | ⏳ Pending |
 | CI/CD (GitHub Actions)                     | ⏳ Pending |
