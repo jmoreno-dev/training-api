@@ -2,32 +2,28 @@ package com.jmorenodev.training_api.model;
 
 import com.jmorenodev.training_api.model.enums.Muscles;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table (name = "exercises")
+@Table(name = "exercises")
 public class Exercise {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
-    @Column (nullable = false)
-    @Size(min = 2, max = 100)
+    @Column(nullable = false)
     private String name;
 
-    @Size (max = 255)
     private String description;
 
     @Enumerated(EnumType.STRING)
-    @NotNull
-    @Column (nullable = false)
+    @Column(nullable = false)
     private Muscles muscleGroup;
 }
