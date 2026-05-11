@@ -1,4 +1,4 @@
-package com.jmorenodev.training_api.dto;
+package com.jmorenodev.training_api.dto.user;
 
 import com.jmorenodev.training_api.model.enums.Role;
 
