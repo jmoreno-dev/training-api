@@ -11,6 +11,6 @@ public record ExerciseSetResponse(
         Integer reps,
         Rpe rpe,
         Integer restSeconds,
-        Exercise exercise,
-        Session session) {
+        Long exerciseId,
+        Long sessionId) {
 }

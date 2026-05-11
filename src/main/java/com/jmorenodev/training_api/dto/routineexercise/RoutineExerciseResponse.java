@@ -10,7 +10,7 @@ public record RoutineExerciseResponse(
         Integer targetReps,
         Rpe targetRpe,
         Integer targetRestSeconds,
-        Exercise exercise,
-        Routine routine
+        Long exerciseId,
+        Long routineId
 ) {
 }

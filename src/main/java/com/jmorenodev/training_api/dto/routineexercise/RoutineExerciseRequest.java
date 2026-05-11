@@ -22,9 +22,9 @@ public record RoutineExerciseRequest(
         Integer targetRestSeconds,
 
         @NotNull
-        Exercise exercise,
+        Long exerciseId,
 
         @NotNull
-        Routine routine
+        Long routineId
 ) {
 }

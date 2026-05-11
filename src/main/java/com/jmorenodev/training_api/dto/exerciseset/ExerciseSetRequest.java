@@ -25,8 +25,8 @@ public record ExerciseSetRequest(
         Integer restSeconds,
 
         @NotNull
-        Exercise exercise,
+        Long exerciseId,
         @NotNull
-        Session session
+        Long sessionId
 ) {
 }
